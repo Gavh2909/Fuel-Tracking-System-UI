@@ -89,10 +89,7 @@ function UserRegister() {
 
       <button onClick={handleSubmit}>Submit</button>
 
-      <label>
-        <a href="user/pwdreset">forget password?</a>
-        <a href="user/login">Login</a>
-      </label>
+      <a href="login">Login</a>
     </div>
   );
 }

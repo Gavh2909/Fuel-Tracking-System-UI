@@ -1,10 +1,22 @@
 import "./App.css";
+import Home from "./Components/Pages/Home";
+import Login from "./Components/Pages/Login";
+import PasswordReset from "./Components/Pages/PasswordReset";
 import UserRegister from "./Components/Pages/UserRegister";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <UserRegister />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="register" element={<UserRegister />} />
+          <Route path="login" element={<Login />} />
+          <Route path="pwdreset" element={<PasswordReset />} />
+          <Route path="*" element={<h1>No Page</h1>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

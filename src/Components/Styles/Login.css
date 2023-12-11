@@ -1,0 +1,38 @@
+.login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login label a:nth-child(1) {
+    padding-right: 8px;
+
+}
+
+.login label a:hover {
+    color: rgb(160, 160, 223);
+}
+
+.login input {
+    height: 23px;
+    margin-top: 10px;
+    width: 230px;
+}
+
+.login button {
+    height: 23px;
+    margin-top: 10px;
+    width: 120px;
+    height: 28px;
+    outline: none;
+
+}
+
+.login button:hover {
+    cursor: pointer;
+    border-radius: 19px;
+    transition: 0.5s ease-in;
+    background-color: rgb(32, 28, 24);
+}
