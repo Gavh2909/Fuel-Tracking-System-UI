@@ -16,7 +16,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="pwdreset" element={<PasswordReset />} />
           <Route path="vehicle/addvehicle" element={<VehicleRegister />} />
-          <Route path="*" element={<h1>No Page</h1>} />
+          <Route path="*" element={<h1>undefined path</h1>} />
         </Routes>
       </BrowserRouter>
     </div>
