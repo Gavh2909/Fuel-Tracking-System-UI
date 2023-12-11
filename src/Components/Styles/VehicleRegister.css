@@ -1,0 +1,29 @@
+.vehicle-register {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicle-register input {
+    height: 26px;
+    width: 230px;
+    margin-bottom: 10px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.vehicle-register button {
+    height: 35px;
+    width: 100px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.vehicle-register button:hover {
+    cursor: pointer;
+    background-color: rgb(50, 74, 96);
+    transition: 0.3s ease-in;
+    border: none;
+}
