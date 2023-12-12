@@ -10,14 +10,12 @@
     "react-router-dom": "^6.20.1",
     "react-scripts": "^5.0.1"
   },
-  "homepage": "https://gavh2909.github.io/Fuel-Tracking-System-UI",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy":"gh-pages -d build",
-    "predeploy":"npm run build"
+    "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": [
