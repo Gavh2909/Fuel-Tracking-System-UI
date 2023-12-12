@@ -1,6 +1,4 @@
 import { React } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import UserRegister from "./UserRegister";
 import Login from "./Login";
 import "../Styles/Home.css";
 
