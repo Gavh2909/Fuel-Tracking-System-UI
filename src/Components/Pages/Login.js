@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Styles/Login.css";
+import axios from "axios";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -11,11 +12,12 @@ export default function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async() => {
+    
 
     try {
-      console.log(formData);
+      await axios.post("http://localhost:8080/user/login",formData);
+      console.log("Logged in successfully")
     } catch (error) {
       console.log("Error Registering");
     }
