@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Styles/VehicleRegister.css";
+import axios from "axios";
 
 const VehicleRegister = () => {
   const [formData, setFormData] = useState({
@@ -14,8 +15,15 @@ const VehicleRegister = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    console.log(formData);
+  const handleSubmit = async () => {
+    try {
+      const res = await axios.get("https://api.publicapis.org/entries");
+
+      console.log("Vehicle Added Successfully" + res.data);
+      console.log(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
