@@ -1,24 +1,24 @@
 import { React, useState } from "react";
 import "../Styles/PasswordReset.css";
+import axios from 'axios'
 
 const PasswordReset = () => {
   const [formData, setFormData] = useState({
     email: "",
     mobile: "",
-    newpassword: "",
+    newPassword: "",
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
     try {
-      console.log(formData);
+      await axios.post("http://localhost:8080/user/pwdreset", formData);
+      console.log("PAssword Updated successfully");
     } catch (error) {
-      console.log("Error Registering");
+      console.error("Password Updatation Failed : " + error.message);
     }
   };
 
@@ -44,7 +44,7 @@ const PasswordReset = () => {
       <input
         type="text"
         value={formData.newpassword}
-        name="newpassword"
+        name="newPassword"
         onChange={handleChange}
         placeholder="New Password"
       />
