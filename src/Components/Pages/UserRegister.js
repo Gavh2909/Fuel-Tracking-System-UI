@@ -1,3 +1,4 @@
+import axios from "axios";
 import "../Styles/UserRegister.css";
 import { useState } from "react";
 
@@ -16,15 +17,15 @@ function UserRegister() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
     try {
-      console.log(formData);
+      await axios.post("http://localhost:8080/user/register", formData);
+      console.log("User Registered successfully");
     } catch (error) {
-      console.log("Error Registering");
+      console.error("Registration Failed : " + error.message);
     }
   };
+
   return (
     <div className="register-home">
       <h2>Registration</h2>
