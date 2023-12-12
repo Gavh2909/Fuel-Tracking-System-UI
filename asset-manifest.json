@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Fuel-Tracking-System-UI/static/css/main.72a15c37.css",
+    "main.js": "/Fuel-Tracking-System-UI/static/js/main.6811e222.js",
+    "index.html": "/Fuel-Tracking-System-UI/index.html",
+    "main.72a15c37.css.map": "/Fuel-Tracking-System-UI/static/css/main.72a15c37.css.map",
+    "main.6811e222.js.map": "/Fuel-Tracking-System-UI/static/js/main.6811e222.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.72a15c37.css",
+    "static/js/main.6811e222.js"
+  ]
+}
