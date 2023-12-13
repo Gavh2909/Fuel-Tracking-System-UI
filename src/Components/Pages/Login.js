@@ -1,27 +1,39 @@
 import { useState } from "react";
 import "../Styles/Login.css";
 import axios from "axios";
+import { loginFailure, loginSuccess } from "../../redux/actions/userActions";
+import { connect } from "react-redux";
+import React from 'react';
 
-export default function Login() {
+const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+console.log("userDate - Login",data)
+console.log("error - Login",error)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async() => {
-    
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
     try {
-      await axios.post("http://localhost:8080/user/login",formData);
-      console.log("Logged in successfully")
+      const response = await axios.post("http://localhost:8080/user/login", formData);
+
+      dispatchLoginSuccess(response.data);
+      console.log("Logged in successfully", data);
     } catch (error) {
-      console.log("Error Registering");
+      console.log("Error Logging In", error);
+      dispatchLoginFailure(error);
     }
   };
+  
+
+  // console.log("Data from Redux:", data);
+  // console.log("Error from Redux:", error);
 
   return (
     <div className="login">
@@ -45,8 +57,20 @@ export default function Login() {
       <button onClick={handleSubmit}>Login</button>
       <label>
         <a href="/register">Sign Up</a>
-        <a href="/pwdreset">forgot password?</a>
+        <a href="/pwdreset">Forgot password?</a>
       </label>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => ({
+  data: state.auth.userData,
+  error: state.auth.error,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatchLoginSuccess: (userData) => dispatch(loginSuccess(userData)),
+  dispatchLoginFailure: (error) => dispatch(loginFailure(error)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

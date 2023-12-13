@@ -1,14 +1,19 @@
 import { React, useState } from "react";
 import "../Styles/PasswordReset.css";
 import axios from 'axios'
+import { connect, useSelector } from "react-redux";
 
-const PasswordReset = () => {
+const PasswordReset = ({data,error}) => {
+
+  
+
   const [formData, setFormData] = useState({
     email: "",
     mobile: "",
     newPassword: "",
   });
 
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -54,4 +59,6 @@ const PasswordReset = () => {
   );
 };
 
+
 export default PasswordReset;
+

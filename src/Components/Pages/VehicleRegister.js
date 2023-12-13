@@ -11,18 +11,21 @@ const VehicleRegister = () => {
     ownerId: "",
   });
 
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+ const[err,setErr]=useState('');
   const handleSubmit = async () => {
     try {
-      const res = await axios.get("https://api.publicapis.org/entries");
+      const res = await axios.post("http://localhost:8080/vehicle/addvehicle",formData);
 
       console.log("Vehicle Added Successfully" + res.data);
       console.log(res.data);
+      setErr(res.data)
     } catch (error) {
       console.error(error.message);
+      
     }
   };
 
@@ -35,6 +38,7 @@ const VehicleRegister = () => {
         value={formData.vehicleNumber}
         onChange={handleChange}
         placeholder="Enter Vehicle No"
+        required
       />
       <input
         type="text"
@@ -42,6 +46,7 @@ const VehicleRegister = () => {
         value={formData.brandName}
         onChange={handleChange}
         placeholder="Enter BrandName"
+        required
       />
       <input
         type="text"
@@ -49,6 +54,7 @@ const VehicleRegister = () => {
         value={formData.modelNumber}
         onChange={handleChange}
         placeholder="Enter Model No"
+        required
       />
       <input
         type="text"
@@ -56,6 +62,7 @@ const VehicleRegister = () => {
         value={formData.fuelType}
         onChange={handleChange}
         placeholder="Enter FuelType"
+        required
       />
 
       <input
@@ -64,9 +71,12 @@ const VehicleRegister = () => {
         value={formData.ownerId}
         onChange={handleChange}
         placeholder="Enter OwnerId"
+        required
       />
 
       <button onClick={handleSubmit}>Add</button>
+      {err==="Vehicle Already Exists" && <label>Vehicle Already Exists!!</label>}
+      {err==="Vehicle Registered Successfully" && <label>Vehicle added successfully</label>}
     </div>
   );
 };

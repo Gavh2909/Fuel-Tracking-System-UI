@@ -1,8 +1,11 @@
 import { React } from "react";
 import Login from "./Login";
 import "../Styles/Home.css";
+import { connect } from "react-redux";
 
-const Home = () => {
+const Home = ({data,error}) => {
+
+  
   return (
     <div className="home">
       <div className="home-content">
@@ -31,4 +34,8 @@ const Home = () => {
   );
 };
 
+
+
+
 export default Home;
+
