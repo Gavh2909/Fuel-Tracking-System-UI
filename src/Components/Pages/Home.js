@@ -1,7 +1,6 @@
 import { React } from "react";
 import Login from "./Login";
 import "../Styles/Home.css";
-import { connect } from "react-redux";
 
 const Home = ({data,error}) => {
 

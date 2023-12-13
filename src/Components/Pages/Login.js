@@ -3,15 +3,19 @@ import "../Styles/Login.css";
 import axios from "axios";
 import { loginFailure, loginSuccess } from "../../redux/actions/userActions";
 import { connect } from "react-redux";
-import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import LoggedHome from "./Logged/LoggedHome";
 
 const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-console.log("userDate - Login",data)
-console.log("error - Login",error)
+  console.log("userDate - Login", data);
+  console.log("error - Login", error);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,18 +23,21 @@ console.log("error - Login",error)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
-      const response = await axios.post("http://localhost:8080/user/login", formData);
+      const response = await axios.post(
+        "http://localhost:8080/user/login",
+        formData
+      );
 
       dispatchLoginSuccess(response.data);
+      navigate(<LoggedHome />);
       console.log("Logged in successfully", data);
     } catch (error) {
       console.log("Error Logging In", error);
       dispatchLoginFailure(error);
     }
   };
-  
 
   // console.log("Data from Redux:", data);
   // console.log("Error from Redux:", error);

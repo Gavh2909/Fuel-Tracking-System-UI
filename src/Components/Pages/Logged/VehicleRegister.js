@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Styles/VehicleRegister.css";
+import "../../Styles/VehicleRegister.css";
 import axios from "axios";
 
 const VehicleRegister = () => {
@@ -11,21 +11,22 @@ const VehicleRegister = () => {
     ownerId: "",
   });
 
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
- const[err,setErr]=useState('');
+  const [err, setErr] = useState("");
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/vehicle/addvehicle",formData);
+      const res = await axios.post(
+        "http://localhost:8080/vehicle/addvehicle",
+        formData
+      );
 
       console.log("Vehicle Added Successfully" + res.data);
       console.log(res.data);
-      setErr(res.data)
+      setErr(res.data);
     } catch (error) {
       console.error(error.message);
-      
     }
   };
 
@@ -75,8 +76,12 @@ const VehicleRegister = () => {
       />
 
       <button onClick={handleSubmit}>Add</button>
-      {err==="Vehicle Already Exists" && <label>Vehicle Already Exists!!</label>}
-      {err==="Vehicle Registered Successfully" && <label>Vehicle added successfully</label>}
+      {err === "Vehicle Already Exists" && (
+        <label>Vehicle Already Exists!!</label>
+      )}
+      {err === "Vehicle Registered Successfully" && (
+        <label>Vehicle added successfully</label>
+      )}
     </div>
   );
 };

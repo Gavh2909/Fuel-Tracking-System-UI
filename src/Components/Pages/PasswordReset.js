@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import "../Styles/PasswordReset.css";
-import axios from 'axios'
-import { connect, useSelector } from "react-redux";
+import axios from "axios";
 
 const PasswordReset = ({data,error}) => {
 
