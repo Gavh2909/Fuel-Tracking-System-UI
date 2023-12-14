@@ -5,12 +5,13 @@ import Home from "./Components/Pages/Home";
 import Login from "./Components/Pages/Login";
 import PasswordReset from "./Components/Pages/PasswordReset";
 import UserRegister from "./Components/Pages/UserRegister";
+import Vehicles from "./Components/Pages/Logged/Vehicles";
 
 const App = () => (
   <div className="app">
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Vehicles />} />
         <Route path="register" element={<UserRegister />} />
         <Route path="login" element={<Login />} />
         <Route path="pwdreset" element={<PasswordReset />} />
