@@ -5,18 +5,14 @@ import { loginFailure, loginSuccess } from "../../redux/actions/userActions";
 import { connect } from "react-redux";
 import React from "react";
 
-const Login = ({ data, error,cpage, loginStatus, dispatchLoginSuccess, dispatchLoginFailure }) => {
+const Login = ({ data, error, loginStatus, dispatchLoginSuccess, dispatchLoginFailure }) => {
 
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  console.log("userDate - Login", data);
-  console.log("error - Login", error);
-  console.log("error - Status", loginStatus);
-  console.log("Page CURR", cpage);
-
+ 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -30,6 +26,7 @@ const Login = ({ data, error,cpage, loginStatus, dispatchLoginSuccess, dispatchL
         formData
       );
       dispatchLoginSuccess(response.data);
+      console.log("Data From server::",response.data)
     } catch (error) {
       dispatchLoginFailure(error);
     }

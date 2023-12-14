@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "../../Styles/VehicleRegister.css";
 import axios from "axios";
+import Vehicles from "./Vehicles";
 
 const VehicleRegister = () => {
+const[click,setClick]=useState(false)
+
   const [formData, setFormData] = useState({
     vehicleNumber: "",
     brandName: "",
@@ -23,6 +26,7 @@ const VehicleRegister = () => {
       );
 
       console.log("Vehicle Added Successfully" + res.data);
+     
       console.log(res.data);
       setErr(res.data);
     } catch (error) {
@@ -31,6 +35,9 @@ const VehicleRegister = () => {
   };
 
   return (
+    <div>
+      {click && <Vehicles/>}
+      {!click &&
     <div className="vehicle-register">
       <h1>Add new Vehicle</h1>
       <input
@@ -76,12 +83,14 @@ const VehicleRegister = () => {
       />
 
       <button onClick={handleSubmit}>Add</button>
+      <button onClick={()=> setClick(true)}>Vehicles</button>
       {err === "Vehicle Already Exists" && (
         <label>Vehicle Already Exists!!</label>
       )}
       {err === "Vehicle Registered Successfully" && (
         <label>Vehicle added successfully</label>
       )}
+    </div>}
     </div>
   );
 };

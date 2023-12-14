@@ -2,15 +2,15 @@ import { useSelector } from "react-redux";
 import "../../Styles/LoggedHome.css";
 
 const LoggedHome = () => {
-  const data = useSelector((state) => state.auth);
+  const data = useSelector((state) => state.auth).userData.userInfo;
   console.log(data.userData);
 
   return (
     <div className="logged-home">
-      <h2>Hi {data.userData.firstName}, Welcome back!</h2>
+      <h2>Hi Satish, Welcome back!</h2>
       <div className="boxes-mid">
-        <p>{Number(data.userData.totalConsumption) + 23} LTR</p>
-        <p>{Number(data.userData.totalSpending) + 3687} RS</p>
+        <p> {data.totalConsumption}LTR</p>
+        <p>{data.totalSpending} RS</p>
       </div>
 
       <div className="boxes-bottom">

@@ -6,18 +6,18 @@ import { useSelector } from 'react-redux';
 const ProfilePage = () => {
  
 
-  const Vehicl=useSelector((state)=>state.auth)
-  console.log("Form Profile",Vehicl.userData.firstName)
+  const myDetails=useSelector((state)=>state.auth).userData.userInfo
+  console.log("Form Profile",myDetails)
 
   return (
     <div>
       <h1>Your Details</h1>
-      <input type="text" name="" value={Vehicl.userData.firstName} />
-      <input type="text" name="" value={Vehicl.userData.lastName} />
-      <input type="text" name="" value={Vehicl.userData.email} />
-      <input type="text" name="" value={Vehicl.userData.mobile} />
-      <input type="text" name="" value={Vehicl.userData.state} />
-      <input type="text" name="" value={Vehicl.userData.district} />
+      <input type="text" name="" value={myDetails.firstName} />
+      <input type="text" name="" value={myDetails.lastName} />
+      <input type="text" name="" value={myDetails.email} />
+      <input type="text" name="" value={myDetails.mobile} />
+      <input type="text" name="" value={myDetails.state} />
+      <input type="text" name="" value={myDetails.district} />
     </div>
   );
 };

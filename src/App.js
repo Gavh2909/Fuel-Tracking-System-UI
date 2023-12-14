@@ -11,7 +11,7 @@ const App = () => (
   <div className="app">
     <BrowserRouter>
       <Routes>
-        <Route index element={<Vehicles />} />
+        <Route index element={<Home />} />
         <Route path="register" element={<UserRegister />} />
         <Route path="login" element={<Login />} />
         <Route path="pwdreset" element={<PasswordReset />} />

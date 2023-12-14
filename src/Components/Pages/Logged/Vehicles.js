@@ -1,10 +1,34 @@
+import { useSelector } from "react-redux";
 import "./Styles/Vehicles.css";
+import { useState } from "react";
+import VehicleRegister from "./VehicleRegister";
+import axios from "axios";
 const Vehicles = () => {
+
+  const[click,setClick]=useState(false)
+  const[vehicls,setVehicls]=useState(useSelector((st)=>st.auth.userData).vehicles)
+  const userId = useSelector((state) => state.auth).userData.userInfo.userId
+  console.log("userID",userId)
+  console.log("Vehicles",useSelector((st)=>st.auth.userData).vehicles)
+  //API for getting all vehicles associated with user
+  const vehc=async()=>{
+    const res=await axios.get("http://localhost:8080/vehicle/allVehicles/"+userId);
+    setVehicls(res.data)
+    console.log("DB vehicles",res.data)
+    
+  }
+  //API for delete the vehicle
+  //API for edit the vehicle
+
   return (
+    <div onMouseOver={vehc}>
+      <button onClick={vehc}>CLK</button>
+      {click && <VehicleRegister/>}
+{!click &&
     <div className="vehicle-page">
       <div className="head-veh">
         <h2>My Vehicles</h2>
-        <a href="#">Add New Vehicle</a>
+        <button onClick={()=>setClick(true)}>Add Vehicle</button>
       </div>
       {/* <h3>User ca perfom operations like update and delete operatiosn</h3>
       <h3>their should one button for adding new vehicle</h3> */}
@@ -21,106 +45,31 @@ const Vehicles = () => {
           <th>Consumption(LTR)</th>
           <th>Edit/Delete</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>MH26L3433</td>
-          <td>Hero Honda</td>
-          <td>23565MH26KJH67</td>
-          <td>Petrol</td>
-          <td>12:23:2021</td>
-          <td>2132</td>
-          <td>23</td>
+        {vehicls.map((post) => {
+          const { brandName, fuelType, modelNumber, ownerId, registrationDate, totalConsumption, totalSpending, vehicleId, vehicleNumber } = post;
+          return (
+
+        < tr key={vehicleId}>
+          <td>{vehicleId}</td>
+          <td>{vehicleNumber}</td>
+          <td> {brandName}</td>
+          <td>{modelNumber}</td>
+          <td>{fuelType}</td>
+          <td>{registrationDate}</td>
+          <td>{totalSpending}</td>
+          <td>{totalConsumption}</td>
           <td>
             <a href="#">edit</a>
             <a href="#"> delete</a>
           </td>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>MH26L3433</td>
-          <td>Hero Honda</td>
-          <td>23565MH26KJH67</td>
-          <td>Petrol</td>
-          <td>12:23:2021</td>
-          <td>2132</td>
-          <td>23</td>
-          <td>
-            <a href="#">edit</a>
-            <a href="#"> delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>MH26L3433</td>
-          <td>Hero Honda</td>
-          <td>23565MH26KJH67</td>
-          <td>Petrol</td>
-          <td>12:23:2021</td>
-          <td>2132</td>
-          <td>23</td>
-          <td>
-            <a href="#">edit</a>
-            <a href="#"> delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>MH26L3433</td>
-          <td>Hero Honda</td>
-          <td>23565MH26KJH67</td>
-          <td>Petrol</td>
-          <td>12:23:2021</td>
-          <td>2132</td>
-          <td>23</td>
-          <td>
-            <a href="#">edit</a>
-            <a href="#"> delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>MH26L3433</td>
-          <td>Hero Honda</td>
-          <td>23565MH26KJH67</td>
-          <td>Petrol</td>
-          <td>12:23:2021</td>
-          <td>2132</td>
-          <td>23</td>
-          <td>
-            <a href="#">edit</a>
-            <a href="#"> delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>MH26L3433</td>
-          <td>Hero Honda</td>
-          <td>23565MH26KJH67</td>
-          <td>Petrol</td>
-          <td>12:23:2021</td>
-          <td>2132</td>
-          <td>23</td>
-          <td>
-            <a href="#">edit</a>
-            <a href="#"> delete</a>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>MH26L3433</td>
-          <td>Hero Honda</td>
-          <td>23565MH26KJH67</td>
-          <td>Petrol</td>
-          <td>12:23:2021</td>
-          <td>2132</td>
-          <td>23</td>
-          <td>
-            <a href="#">edit</a>
-            <a href="#"> delete</a>
-          </td>
-        </tr>
-      </table>
-    </div>
+        
+        );
+        })}
+    </table>
+    </div >
+  }
+  </div>
   );
 };
 
