@@ -4,11 +4,9 @@ import axios from "axios";
 import { loginFailure, loginSuccess } from "../../redux/actions/userActions";
 import { connect } from "react-redux";
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import LoggedHome from "./Logged/LoggedHome";
 
-const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
-  const navigate = useNavigate();
+const Login = ({ data, error,cpage, loginStatus, dispatchLoginSuccess, dispatchLoginFailure }) => {
+
 
   const [formData, setFormData] = useState({
     email: "",
@@ -16,6 +14,8 @@ const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
   });
   console.log("userDate - Login", data);
   console.log("error - Login", error);
+  console.log("error - Status", loginStatus);
+  console.log("Page CURR", cpage);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,12 +29,8 @@ const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
         "http://localhost:8080/user/login",
         formData
       );
-
       dispatchLoginSuccess(response.data);
-      navigate(<LoggedHome />);
-      console.log("Logged in successfully", data);
     } catch (error) {
-      console.log("Error Logging In", error);
       dispatchLoginFailure(error);
     }
   };
@@ -44,6 +40,7 @@ const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
 
   return (
     <div className="login">
+      
       <h1>Login</h1>
       <input
         type="text"
@@ -66,6 +63,7 @@ const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
         <a href="/register">Sign Up</a>
         <a href="/pwdreset">Forgot password?</a>
       </label>
+      
     </div>
   );
 };
@@ -73,6 +71,7 @@ const Login = ({ data, error, dispatchLoginSuccess, dispatchLoginFailure }) => {
 const mapStateToProps = (state) => ({
   data: state.auth.userData,
   error: state.auth.error,
+  loginStatus:state.auth.loginStatus,
 });
 
 const mapDispatchToProps = (dispatch) => ({

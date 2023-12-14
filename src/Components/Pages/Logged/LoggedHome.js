@@ -12,11 +12,13 @@ const LoggedHome = () => {
         <p>{Number(data.userData.totalConsumption) + 23} LTR</p>
         <p>{Number(data.userData.totalSpending) + 3687} RS</p>
       </div>
+
       <div className="boxes-bottom">
         <a href="/entry/new">New Entry</a>
         <a href="/vehicle/vehicles">Vehicles</a>
         <a href="/entry/entries">Entries</a>
       </div>
+      
     </div>
   );
 };

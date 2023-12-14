@@ -1,12 +1,18 @@
 import { React } from "react";
 import Login from "./Login";
 import "../Styles/Home.css";
+import { useSelector } from "react-redux";
+import LandingPage from "./Logged/LandingPage";
 
-const Home = ({data,error}) => {
-
-  
+const Home = () => {
+ const loginStatus=useSelector((state)=>state.auth)
+  console.log("From Homr: ",loginStatus)
   return (
+    <div>
+{loginStatus && <LandingPage/>}
+   {!loginStatus &&
     <div className="home">
+
       <div className="home-content">
         <h1>FuelTrack</h1>
         <p>
@@ -29,6 +35,7 @@ const Home = ({data,error}) => {
       <div className="form-home">
         <Login />
       </div>
+    </div>}
     </div>
   );
 };

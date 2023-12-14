@@ -14,6 +14,7 @@ export function loginSuccess(data){
   }
 }
 
+
 export const loginFailure = (error) => ({
   type: LOGIN_FAILURE,
   payload: error,

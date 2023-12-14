@@ -1,7 +1,7 @@
 // components/ProfilePage.js
 
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const ProfilePage = () => {
  

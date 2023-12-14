@@ -1,4 +1,3 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProfilePage from "./Pages/Logged/ProfilePage";
 import LoggedHome from "./Pages/Logged/LoggedHome";
 import VehicleRegister from "./Pages/Logged/VehicleRegister";

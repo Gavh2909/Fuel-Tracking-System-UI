@@ -7,6 +7,7 @@ export default function LandingPage() {
   const [click, setClick] = useState("home");
   return (
     <div className="landing-page">
+
       <a onClick={() => setClick("new-veh")}>New Vehicle</a>
       <a onClick={() => setClick("new-ent")}>New Entry</a>
       <a onClick={() => setClick("home")}>Home</a>
