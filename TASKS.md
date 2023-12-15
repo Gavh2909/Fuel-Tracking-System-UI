@@ -14,6 +14,6 @@
 
 # Modifications Required
 
-### BG2991-for showing vehicle table use GET API instead of using redux data  - > THis is Done
+### BG2991-for showing vehicle table use GET API instead of using redux data  - > This is Done
 ### BG2992-The UI colors and Design
 ### BG2993-Do Something for handling the session

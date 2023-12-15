@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../../Styles/VehicleRegister.css";
 import axios from "axios";
 import Vehicles from "./Vehicles";
+import { useSelector } from "react-redux";
 
 const VehicleRegister = () => {
 const[click,setClick]=useState(false)
@@ -11,7 +12,7 @@ const[click,setClick]=useState(false)
     brandName: "",
     modelNumber: "",
     fuelType: "",
-    ownerId: "",
+    ownerId: useSelector((state) => state.auth).userData.userInfo.userId,
   });
 
   const handleChange = (e) => {
@@ -73,14 +74,7 @@ const[click,setClick]=useState(false)
         required
       />
 
-      <input
-        type="text"
-        name="ownerId" //implement redux for this
-        value={formData.ownerId}
-        onChange={handleChange}
-        placeholder="Enter OwnerId"
-        required
-      />
+      
 
       <button onClick={handleSubmit}>Add</button>
       <button onClick={()=> setClick(true)}>Vehicles</button>
