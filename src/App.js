@@ -6,14 +6,14 @@ import PasswordReset from "./Components/Pages/PasswordReset";
 import UserRegister from "./Components/Pages/UserRegister";
 import Navbar from "./Components/Pages/Navbar";
 import Footer from "./Components/Pages/Footer";
-import LandingPg from "./Components/Pages/Logged/LandingPg";
+import MainLanding from "./Components/Pages/Main-Landing";
 
 const App = () => (
   <div className="app">
-    <LandingPg />
+   
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<MainLanding />} />
         <Route path="register" element={<UserRegister />} />
         <Route path="login" element={<Login />} />
         <Route path="pwdreset" element={<PasswordReset />} />

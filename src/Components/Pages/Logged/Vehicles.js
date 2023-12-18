@@ -5,11 +5,8 @@ import VehicleRegister from "./VehicleRegister";
 import axios from "axios";
 import EditVehicle from "./EditVehicle";
 const Vehicles = () => {
-<<<<<<< HEAD
-  const [click, setClick] = useState(false);
-  const [vehicls, setVehicls] = useState(
-    useSelector((st) => st.auth.userData).vehicles
-  );
+  
+  
   const userId = useSelector((state) => state.auth).userData.userInfo.userId;
 
   console.log("userID", userId);
@@ -23,23 +20,15 @@ const Vehicles = () => {
     setVehicls(res.data);
     console.log("DB vehicles", res.data);
   };
-=======
+
   const [click, setClick] = useState('false');
   const [vehicls, setVehicls] = useState(
     useSelector((st) => st.auth.userData).vehicles
   );
   const [delVehID, setDelVehID] = useState();
-  const userId = useSelector((state) => state.auth).userData.userInfo.userId;
+ 
 
-  const vehc = async () => {
-    const res = await axios.get(
-      "http://localhost:8080/vehicle/allVehicles/" + userId
-    );
-    setVehicls(res.data);
-    console.log("DB vehicles", res.data);
-  };
 
->>>>>>> ea0db384bebf1109fa5bd89b31dd9617df979213
   //API for delete the vehicle
   const deleteVehicle = async (vId) => {
     const data = await axios.post(
@@ -54,15 +43,8 @@ const Vehicles = () => {
 
   return (
     <div onMouseOver={vehc}>
-<<<<<<< HEAD
-      <button onClick={vehc}>CLK</button>
-      {click && <VehicleRegister />}
-      {!click && (
-        <div className="vehicle-page">
-          <div className="head-veh">
-            <h2>My Vehicles</h2>
-            <button onClick={() => setClick(true)}>Add Vehicle</button>
-=======
+   
+
       {click=='true' && <VehicleRegister  />}
       {click == 'edit' && <EditVehicle data={edVeh}/>}
       {click=='false' && (
@@ -70,10 +52,8 @@ const Vehicles = () => {
           <div className="head-veh">
             <h2>My Vehicles</h2>
             <button onClick={() => setClick('true')}>Add Vehicle</button>
->>>>>>> ea0db384bebf1109fa5bd89b31dd9617df979213
           </div>
-          {/* <h3>User ca perfom operations like update and delete operatiosn</h3>
-      <h3>their should one button for adding new vehicle</h3> */}
+          
 
           <table border={1}>
             <tr>
@@ -110,22 +90,19 @@ const Vehicles = () => {
                   <td>{totalSpending}</td>
                   <td>{totalConsumption}</td>
                   <td>
-<<<<<<< HEAD
-                    <a href="#">edit</a>
-                    <a href="#"> delete</a>
-=======
+                    
+
                     <a onClick={()=>{setEdVeh(post);
                       setClick('edit')}}>edit</a>
                     <a onClick={()=>deleteVehicle(vehicleId)}> delete</a>
->>>>>>> ea0db384bebf1109fa5bd89b31dd9617df979213
-                  </td>
+                </td>
                 </tr>
               );
             })}
           </table>
         </div>
       )}
-    </div>
+      </div>
   );
 };
 

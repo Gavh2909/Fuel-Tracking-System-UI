@@ -6,26 +6,27 @@ import Vehicles from "./Vehicles";
 import {loginFailure} from "../../../redux/actions/userActions"
 import "../../Styles/LandingPage.css";
 import { connect } from "react-redux";
+import Entries from "./Entries";
 
 
 function LandingPage({ dispatchLoginFailure }) {
-  const [click, setClick] = useState("home");
+  const [click, setClick] = useState("home1");
   return (
     <div className="landing-page">
     <div className="navbar-log">
-      <a onClick={() => setClick("home")}>Home</a>
+      <a onClick={() => setClick("home1")}>Home</a>
       <nav>
         <a onClick={() => setClick("new-veh")}>Vehicles</a>
         <a onClick={() => setClick("new-ent")}>Entries</a>
         <a onClick={() => setClick("profile")}>Profile</a>
-        <a onClick={() => setClick("log-out")}>Log Out</a>
+        <a onClick={dispatchLoginFailure}>Log Out</a>
       </nav>
     </div>
 
-    {click === "home" && <h1>Home</h1>}
-    {click === "new-veh" && <h1>Vehicles</h1>}
-    {click === "new-ent" && <h1>Entry</h1>}
-    {click === "profile" && <h1>Profile</h1>}
+    {click === "home1" && <LoggedHome/>}
+    {click === "new-veh" && <Vehicles/>}
+    {click === "new-ent" && <Entries/>}
+    {click === "profile" && <ProfilePage/>}
   </div>
   );
 }
