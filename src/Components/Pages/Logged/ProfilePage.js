@@ -12,12 +12,12 @@ const ProfilePage = () => {
   return (
     <div>
       <h1>Your Details</h1>
-      <input type="text" name="" value={myDetails.firstName} />
-      <input type="text" name="" value={myDetails.lastName} />
-      <input type="text" name="" value={myDetails.email} />
-      <input type="text" name="" value={myDetails.mobile} />
-      <input type="text" name="" value={myDetails.state} />
-      <input type="text" name="" value={myDetails.district} />
+      <input type="text" name="" defaultValue={myDetails.firstName} />
+      <input type="text" name="" defaultValue={myDetails.lastName} />
+      <input type="text" name="" defaultValue={myDetails.email} />
+      <input type="text" name="" defaultValue={myDetails.mobile} />
+      <input type="text" name="" defaultValue={myDetails.state} />
+      <input type="text" name="" defaultValue={myDetails.district} />
     </div>
   );
 };
