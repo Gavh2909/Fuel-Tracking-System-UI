@@ -6,8 +6,8 @@
 ## #2932-Add Responsiveness
 ## #2933 - Implement the consumption
 
-## 2902 - ADD Entries Service
-
+## 2902 - ADD Entries Service [ADDED]
+## 2905 - implement delete entry [ADDED]
 
 
 
