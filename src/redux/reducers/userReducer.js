@@ -23,6 +23,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         userData: null,
+        loginStatus: false,
         error: action.payload,
       };
     default:

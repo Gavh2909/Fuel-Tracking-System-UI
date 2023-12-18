@@ -1,0 +1,31 @@
+.nav-home {
+    background-color: #000;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 20px;
+}
+
+.nav-home h3 {
+    background-color: transparent;
+    width: 60vw;
+}
+
+.nav-home nav {
+    background-color: transparent;
+    width: 40vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-home nav a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.nav-home nav a:hover,
+h3:hover {
+    color: #0c650a;
+    cursor: pointer;
+}

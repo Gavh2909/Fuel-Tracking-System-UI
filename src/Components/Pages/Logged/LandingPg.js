@@ -1,12 +1,10 @@
 import { useState } from "react";
 import LoggedHome from "./LoggedHome";
-import VehicleRegister from "./VehicleRegister";
-import ProfilePage from "./ProfilePage";
 import Vehicles from "./Vehicles";
-import { Connect, connect } from "react-redux";
-import { loginFailure } from "../../../redux/actions/userActions";
+import ProfilePage from "./ProfilePage";
+import "../../Styles/LandingPage.css";
 
-function LandingPage({ dispatchLoginFailure }) {
+export default function LandingPg() {
   const [click, setClick] = useState("home");
   return (
     <div className="landing-page">
@@ -16,7 +14,7 @@ function LandingPage({ dispatchLoginFailure }) {
           <a onClick={() => setClick("new-veh")}>Vehicles</a>
           <a onClick={() => setClick("new-ent")}>Entries</a>
           <a onClick={() => setClick("profile")}>Profile</a>
-          <a onClick={dispatchLoginFailure}>Log Out</a>
+          <a onClick={() => setClick("log-out")}>Log Out</a>
         </nav>
       </div>
 
@@ -27,9 +25,3 @@ function LandingPage({ dispatchLoginFailure }) {
     </div>
   );
 }
-
-const mapDispatchToProps = (dispatch) => ({
-  dispatchLoginFailure: (error) => dispatch(loginFailure(error)),
-});
-
-export default connect(null, mapDispatchToProps)(LandingPage);
