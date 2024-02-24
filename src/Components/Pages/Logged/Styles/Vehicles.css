@@ -3,6 +3,7 @@
     align-self: center;
     justify-content: center;
     flex-direction: column;
+    height: 80vh;
 }
 
 .vehicle-page .head-veh {

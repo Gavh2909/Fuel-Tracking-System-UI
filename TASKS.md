@@ -1,8 +1,8 @@
 # TASKS:
 
-## #2909-Add both Navbars before and after logging
-## #2930-Implement Edit/Delete for vehicles and user - Done
-## #2931-Implement LogOut facility
+## #2909-Add both Navbars before and after logging - [ADDED]
+## #2930-Implement Edit/Delete for vehicles and user - [ADDED]
+## #2931-Implement LogOut facility [ADDED]
 ## #2932-Add Responsiveness
 ## #2933 - Implement the consumption
 
@@ -16,9 +16,9 @@
 
 # Modifications Required
 
-### BG2991-for showing vehicle table use GET API instead of using redux data  - > This is Done
+### BG2991-for showing vehicle table use GET API instead of using redux data  - > [MODIFIED]
 ### BG2992-The UI colors and Design
-### BG2993-Do Something for handling the session
+### BG2993-Do Something for handling the session -[LOGOUT]
 
 ### BG2994 - Implement getEntries for respencive vehicles[Design UI]
 ### BG2995 - Implement getEntries for all vehicles associated with that user only.
@@ -36,3 +36,9 @@ ADMIN:
 
 ### ADN3249 - ADD support page for mailing queries to ADMIN 
               
+
+
+## FROM NOW START WORKING WITH Branches
+   1: Master
+   2: Create for every feature <#-ID->   --> merge after commit
+   3: Development to do regular development  -->merge after commit
