@@ -2,6 +2,8 @@ import { useState } from "react";
 import Entries from "./Entries";
 import axios from "axios";
 
+import "./Styles/Entries.css"
+
 const AddEntry = () => {
   const [click, setClick] = useState(false);
   const [vehicles, setVehicles] = useState([]);
@@ -67,7 +69,7 @@ const AddEntry = () => {
             })}
           </select>
           <button onClick={handleSubmit}>ADD</button>
-          <button onClick={() => setClick(true)}>Back to entries</button>
+          <a onClick={() => setClick(true)}>Back to entries</a>
         </div>
       )}
     </div>

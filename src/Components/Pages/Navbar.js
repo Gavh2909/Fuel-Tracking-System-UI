@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="nav-home">
       <h3>App</h3>
       <nav>
-        <a href="/">Home</a>
+        <a href="/">FuelTrack</a>
         <a href="/about">About Us</a>
         <a href="/login">Login</a> <a href="/register">Register</a>
       </nav>

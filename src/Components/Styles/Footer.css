@@ -6,6 +6,20 @@
     justify-content: center;
 }
 
-.footer h1 {
+.footer h2 {
+    background-color: transparent;
+    width: 50%;
+    text-align: center;
+}
+
+.footer .social-icons{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
     background-color: transparent;
 }
+
+.social-icons FaLinkedin{
+    height: 60px;
+}
+

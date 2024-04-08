@@ -15,3 +15,15 @@
     align-items: center;
     justify-content: space-around;
 }
+
+.landing-page a, nav a{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.landing-page nav a:hover{
+    color: green;
+    border-bottom: solid #4d3434 2px;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+}

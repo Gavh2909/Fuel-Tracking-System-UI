@@ -8,7 +8,9 @@ const ProfilePage = () => {
  
 
   const myDetails=useSelector((state)=>state.auth).userData.userInfo
-  
+  const data = useSelector((state) => state.auth).userData.userInfo;
+
+  console.log(data)
   // service for updating the user details
   const[formData,setFormData]=useState({
     firstName: myDetails.firstName,

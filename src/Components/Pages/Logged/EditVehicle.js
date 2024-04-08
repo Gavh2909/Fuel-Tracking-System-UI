@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Vehicles from "./Vehicles";
+import "./Styles/EditVehicle.css"
 
 const EditVehicle = (vcls) => {
   const [click, setClick] = useState(false);

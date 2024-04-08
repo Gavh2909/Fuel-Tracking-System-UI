@@ -1,0 +1,14 @@
+.edit-vehicle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.edit-vehicle input, button{
+    width: 200px;
+    outline: none;
+    margin-top: 10px;
+    height: 25px;
+    padding-left: 10px;
+}

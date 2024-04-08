@@ -14,7 +14,7 @@ function LandingPage({ dispatchLoginFailure }) {
   return (
     <div className="landing-page">
     <div className="navbar-log">
-      <a onClick={() => setClick("home1")}>Home</a>
+      <a onClick={() => setClick("home1")}>FuelTrack</a>
       <nav>
         <a onClick={() => setClick("new-veh")}>Vehicles</a>
         <a onClick={() => setClick("new-ent")}>Entries</a>
